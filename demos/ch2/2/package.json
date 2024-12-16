@@ -1,0 +1,23 @@
+{
+  "name": "2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc-watch message.ts --onSuccess \"node message.js\"",
+    "go": "tsc message.ts && node message.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "tsc-watch": "^6.2.1",
+    "typescript": "^5.7.2"
+  }
+}

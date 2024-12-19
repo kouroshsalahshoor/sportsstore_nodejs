@@ -1,6 +1,4 @@
-import {
-    Model, CreationOptional, ForeignKey, InferAttributes, InferCreationAttributes
-} from "sequelize";
+import { Model, CreationOptional, ForeignKey, InferAttributes, InferCreationAttributes } from "sequelize";
 
 export class ProductModel extends Model<InferAttributes<ProductModel>, InferCreationAttributes<ProductModel>> {
     declare id?: CreationOptional<number>;

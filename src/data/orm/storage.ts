@@ -1,7 +1,8 @@
 import { Transaction } from "sequelize";
 import { Category, Product, Supplier } from "../catalog_models";
 import { CategoryModel, ProductModel, SupplierModel } from "./models";
-import { BaseRepo, Constructor } from "./core"
+import { BaseRepo, Constructor } from "./core";
+
 export function AddStorage<TBase extends Constructor<BaseRepo>>(Base: TBase) {
     return class extends Base {
         storeProduct(p: Product) {

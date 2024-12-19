@@ -1,6 +1,11 @@
 # sportsstore_nodejs
+## to run:
+```
+sportsstore_nodejs> npm run start
+```
+open: http://localhost:5000 in browser
 
-# ch2
+## ch2
 ### tools
 ```
 cd demos/ch2/tools

@@ -3,18 +3,49 @@ import express, { Express } from "express";
 import { readHandler } from "./readHandler";
 import cors from "cors";
 import httpProxy from "http-proxy";
+<<<<<<< HEAD
 
 const port = 5000;
+=======
+import helmet from "helmet";
+
+const port = 5000;
+
+>>>>>>> ch7
 const expressApp: Express = express();
 
 const proxy = httpProxy.createProxyServer({
     target: "http://localhost:5100", ws: true
 });
 
+<<<<<<< HEAD
+=======
+// expressApp.use((req, resp, next) => {
+//     resp.setHeader("Content-Security-Policy", "img-src 'self'; connect-src 'self'");
+//     next();
+// })
+
+expressApp.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            imgSrc: "'self'",
+            scriptSrcAttr: "'none'",
+            scriptSrc: "'self'",
+            connectSrc: "'self' ws://localhost:5000",
+        },
+        reportOnly: true
+    }
+}));
+
+>>>>>>> ch7
 expressApp.use(cors({
     origin: "http://localhost:5100"
 }));
 expressApp.use(express.json());
+<<<<<<< HEAD
+=======
+
+>>>>>>> ch7
 expressApp.post("/read", readHandler);
 expressApp.use(express.static("static"));
 expressApp.use(express.static("node_modules/bootstrap/dist"));

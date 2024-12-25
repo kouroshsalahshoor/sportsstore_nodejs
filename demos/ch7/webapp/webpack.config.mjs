@@ -16,5 +16,10 @@ export default {
         client: {
             webSocketURL: "http://localhost:5000/ws"
         }
+<<<<<<< HEAD
     }
+=======
+    },
+    devtool: "source-map"
+>>>>>>> ch7
 };

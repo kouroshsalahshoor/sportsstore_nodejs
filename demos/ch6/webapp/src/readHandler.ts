@@ -1,13 +1,17 @@
 import { IncomingMessage, ServerResponse } from "http";
+import { Request, Response } from "express";
 
-export const readHandler = (req: IncomingMessage, resp: ServerResponse) => {
-
-    req.setEncoding("utf-8");
-    req.on("data", (data: string) => {
-        console.log(data);
-    });
-    req.on("end", () => {
-        console.log("End: all data read");
+export const readHandler = async (req: Request, resp: Response) => {
+    if (req.headers["content-type"] == "application/json") {
+        const payload = req.body;
+        if (payload instanceof Array) {
+            //resp.write(`Received an array with ${payload.length} items`)
+            resp.json({ arraySize: payload.length });
+        } else {
+            resp.write("Did not receive an array");
+        }
         resp.end();
-    });
+    } else {
+        req.pipe(resp);
+    }
 }
